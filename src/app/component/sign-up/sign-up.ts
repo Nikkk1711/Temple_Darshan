@@ -7,7 +7,7 @@ import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [CommonModule, FormsModule, RouterLink, Header, Footer],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.css',
 })

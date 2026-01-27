@@ -1,0 +1,119 @@
+<app-header></app-header>
+
+<!-- Page Wrapper -->
+<main class="pt-16 bg-background-light dark:bg-background-dark min-h-screen">
+<section class="w-full relative bg-background-dark overflow-hidden">
+  <div class="absolute inset-0">
+    <div
+      class="w-full h-full bg-cover bg-center opacity-60"
+      [style.backgroundImage]="'url(' + featuredProgram?.image + ')'"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 py-24 text-center space-y-6">
+    <span class="px-4 py-1 text-xs uppercase font-bold text-white bg-white/10 rounded-full">
+      Community & Spirituality
+    </span>
+
+    <h1 class="text-5xl font-black text-white font-display">
+      Programs & Celebrations
+    </h1>
+
+    <p class="text-white/90 text-lg max-w-2xl mx-auto">
+      Discover upcoming spiritual gatherings, festivals and events.
+    </p>
+
+    <div class="flex justify-center gap-4">
+      <button class="bg-primary text-white px-6 py-3 rounded-lg font-bold">
+        View Calendar
+      </button>
+      <button class="border border-white text-white px-6 py-3 rounded-lg">
+        Subscribe
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED EVENT -->
+<section class="max-w-6xl mx-auto px-4 py-12" *ngIf="featuredProgram">
+  <div class="flex items-center gap-2 mb-4">
+    <span class="material-symbols-outlined text-primary">star</span>
+    <h2 class="text-2xl font-bold font-display">Featured Celebration</h2>
+  </div>
+
+  <div class="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col md:flex-row">
+    <div
+      class="md:w-2/5 h-64 bg-cover bg-center"
+      [style.backgroundImage]="'url(' + featuredProgram.image + ')'"
+    ></div>
+
+    <div class="p-8 space-y-4 flex-1">
+      <h3 class="text-3xl font-bold font-display">
+        {{ featuredProgram.title }}
+      </h3>
+
+      <div class="flex gap-6 text-sm text-text-muted">
+        <span>{{ featuredProgram.time }}</span>
+        <span>{{ featuredProgram.location }}</span>
+      </div>
+
+      <p class="text-text-main">
+        {{ featuredProgram.description }}
+      </p>
+
+      <div class="flex gap-4">
+        <button class="bg-primary text-white px-5 py-2 rounded-lg font-bold">
+          Register
+        </button>
+        <button class="border px-5 py-2 rounded-lg">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING EVENTS GRID -->
+<section class="max-w-6xl mx-auto px-4 pb-20">
+  <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+    <span class="material-symbols-outlined text-primary">calendar_month</span>
+    Upcoming Events
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div
+      *ngFor="let program of filteredPrograms"
+      class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden"
+    >
+      <div
+        class="h-48 bg-cover bg-center"
+        [style.backgroundImage]="'url(' + program.image + ')'"
+      ></div>
+
+      <div class="p-5 space-y-3">
+        <div class="text-xs text-primary font-bold">
+          {{ program.date }} • {{ program.time }}
+        </div>
+
+        <h3 class="text-xl font-bold font-display">
+          {{ program.title }}
+        </h3>
+
+        <p class="text-sm text-text-muted line-clamp-2">
+          {{ program.description }}
+        </p>
+
+        <div class="flex justify-between text-xs text-text-muted pt-3 border-t">
+          <span>{{ program.location }}</span>
+          <button class="text-primary font-bold">Details →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<app-footer></app-footer>
+

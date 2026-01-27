@@ -9,6 +9,8 @@ import { Gallery } from './component/gallery/gallery';
 import { HelpSupport } from './component/help-support/help-support';
 import { AbhishekDarshan } from './component/abhishek-darshan/abhishek-darshan';
 import { Home } from './component/home/home';
+import { Livedarshan } from './component/livedarshan/livedarshan';
+import { Programs } from './component/programs/programs';
 
 export const routes: Routes = [
 
@@ -58,5 +60,13 @@ export const routes: Routes = [
      {
         path: 'signup',
         component: SignUp
+     },
+     {
+        path:'livedarshan',
+        component: Livedarshan
+     },
+     {
+        path: 'programs',
+        component: Programs
      }
 ];
