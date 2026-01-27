@@ -1,0 +1,132 @@
+<app-header></app-header>
+<main
+  class="flex-1 flex flex-col items-center py-8 px-4 md:px-10 lg:px-20 max-w-[1440px] mx-auto w-full pt-24"
+>
+  <!-- Heading -->
+  <div class="w-full max-w-[1100px] mb-8">
+    <h1 class="text-4xl md:text-5xl font-black">
+      Book Your Divine Experience
+    </h1>
+    <p
+      class="text-text-secondary-light dark:text-text-secondary-dark text-lg"
+    >
+      Schedule your Abhishek and Darshan services with spiritual ease.
+    </p>
+  </div>
+
+  <!-- Progress -->
+  <div class="w-full max-w-[1100px] mb-12">
+    <div class="relative h-2 rounded-full bg-[#e7dbcf] overflow-hidden">
+      <div
+        class="absolute h-full bg-primary"
+        [style.width.%]="25"
+      ></div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div
+    class="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-12 gap-8"
+  >
+    <!-- Seva List -->
+    <div class="lg:col-span-8 flex flex-col gap-6">
+      <h2 class="text-2xl font-bold flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">spa</span>
+        Choose Your Seva
+      </h2>
+
+      <div
+        *ngFor="let seva of sevas"
+        (click)="selectSeva(seva)"
+        class="group flex flex-col md:flex-row rounded-xl border bg-surface-light dark:bg-surface-dark cursor-pointer hover:ring-2 hover:ring-primary/30 transition"
+      >
+        <div
+          class="w-full md:w-48 h-48 bg-cover bg-center"
+          [style.backgroundImage]="'url(' + seva.image + ')'"
+        ></div>
+
+        <div class="p-6 flex flex-col justify-between w-full">
+          <div>
+            <div class="flex justify-between">
+              <h3 class="text-xl font-bold">
+                {{ seva.name }}
+              </h3>
+              <span
+                *ngIf="seva.popular"
+                class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary"
+                >Popular</span
+              >
+            </div>
+            <p class="text-sm text-text-secondary-light mt-2">
+              {{ seva.description }}
+            </p>
+          </div>
+
+          <div class="flex justify-between items-end mt-4">
+            <div>
+              <p class="text-xs uppercase">Seva Amount</p>
+              <p class="text-xl font-bold text-primary">
+                ₹{{ seva.amount }}
+              </p>
+            </div>
+
+            <button
+              class="px-6 py-2 rounded-lg font-bold border"
+              [class.bg-primary]="selectedSeva?.id === seva.id"
+              [class.text-white]="selectedSeva?.id === seva.id"
+            >
+              {{ selectedSeva?.id === seva.id ? 'Selected' : 'Select' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="lg:col-span-4 sticky top-24">
+      <div
+        class="rounded-xl bg-surface-light dark:bg-surface-dark p-5 border shadow"
+      >
+        <h3 class="font-bold text-lg mb-4 text-primary">
+          Booking Summary
+        </h3>
+
+        <ng-container *ngIf="selectedSeva; else empty">
+          <div class="flex justify-between mb-4">
+            <span class="font-bold">{{ selectedSeva.name }}</span>
+            <span class="font-bold">₹{{ selectedSeva.amount }}</span>
+          </div>
+
+          <!-- Adults -->
+          <div class="flex justify-between items-center mb-4">
+            <span>Adults</span>
+            <div class="flex items-center gap-3">
+              <button (click)="decrementAdults()">−</button>
+              <span class="font-bold">{{ adults }}</span>
+              <button (click)="incrementAdults()">+</button>
+            </div>
+          </div>
+
+          <div class="flex justify-between font-bold text-xl">
+            <span>Total</span>
+            <span class="text-primary">₹{{ totalAmount }}</span>
+          </div>
+
+          <button
+            class="w-full mt-4 bg-primary text-white py-3 rounded-lg font-bold"
+          >
+            Proceed to Date →
+          </button>
+        </ng-container>
+
+        <ng-template #empty>
+          <p class="text-center text-text-secondary-light">
+            No seva selected yet
+          </p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

@@ -1,0 +1,94 @@
+<div class="bg-background-light dark:bg-background-dark text-[#1b140d] dark:text-[#f3ede7] font-display antialiased pt-16">
+
+    <app-header></app-header>
+
+    <!-- HERO -->
+    <section class="relative">
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        [style.backgroundImage]="heroBg">
+      </div>
+
+      <div class="relative py-24 md:py-32 text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-black mb-4">
+          Support & Seva
+        </h1>
+        <p class="max-w-xl mx-auto text-lg opacity-90">
+          How can we assist your spiritual journey today?
+        </p>
+
+        <!-- SEARCH -->
+        <div class="max-w-xl mx-auto mt-8 flex rounded-xl overflow-hidden bg-white shadow">
+          <span class="material-symbols-outlined px-4 flex items-center text-[#9a734c]">search</span>
+          <input
+            [(ngModel)]="searchText"
+            class="flex-1 px-3 text-[#1b140d] outline-none"
+            placeholder="Search for bookings, refunds..."
+          />
+          <button class="bg-primary text-white px-6 font-bold">
+            Search
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <main class="max-w-[960px] mx-auto px-4 py-12 space-y-12">
+
+      <!-- QUICK LINKS -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6">Quick Assistance</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div *ngFor="let item of quickLinks"
+               class="rounded-xl border bg-white dark:bg-[#1a120b] p-6 text-center hover:shadow transition">
+            <span class="material-symbols-outlined text-primary text-3xl mb-3 block">
+              {{ item.icon }}
+            </span>
+            <h3 class="font-bold">{{ item.title }}</h3>
+            <p class="text-sm opacity-70">{{ item.desc }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <details *ngFor="let faq of faqs"
+                   class="rounded-xl border bg-white dark:bg-[#1a120b]">
+            <summary class="cursor-pointer p-5 font-bold flex justify-between">
+              {{ faq.q }}
+              <span class="material-symbols-outlined">expand_more</span>
+            </summary>
+            <div class="px-5 pb-5 text-sm opacity-80">
+              {{ faq.a }}
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- CONTACT FORM -->
+      <section class="border-t pt-8">
+        <h2 class="text-2xl font-bold mb-4">Send us a Message</h2>
+
+        <form class="grid md:grid-cols-2 gap-4">
+          <input class="border rounded-lg px-4 py-3" placeholder="Full Name">
+          <input class="border rounded-lg px-4 py-3" placeholder="Email">
+          <select class="border rounded-lg px-4 py-3 md:col-span-2">
+            <option>General Enquiry</option>
+            <option>Booking Issue</option>
+            <option>Donation Support</option>
+          </select>
+          <textarea class="border rounded-lg px-4 py-3 md:col-span-2"
+                    rows="4"
+                    placeholder="Message"></textarea>
+
+          <button type="submit" class="bg-primary text-black font-bold px-6 py-3 rounded-lg md:col-span-2 md:w-fit">
+            Submit Ticket
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <app-footer></app-footer>
+  </div>

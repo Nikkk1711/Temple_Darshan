@@ -1,0 +1,85 @@
+<div
+  class="min-h-screen bg-[#f8f7f6] dark:bg-[#221910] text-[#1b140d] dark:text-gray-100 font-[Newsreader] pt-16">
+
+  <app-header></app-header>
+
+  <!-- ================= HERO ================= -->
+  <section class="max-w-[1440px] mx-auto px-4 md:px-10 py-6">
+    <div
+      class="relative min-h-[480px] rounded-xl overflow-hidden flex items-center justify-center text-center bg-cover bg-center"
+      style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.7)),
+      url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzWZ_4amcSCUh5AF9aJcwX4YBDQ1WkVAb_woFZIRGJMPU1mCfv4CEcRH0JhpLxzJNvnObtYV3vnyLcu0FZPQ2WuZqvQjnx5p18FWdDxnJjMkR4oOHeMljfG7bBm1oaBNE6SkgEek1BEolvo8x27L0F4H0FuTI4td_1MEGWBn4Heoy5YHv3zWpUgB1MMJv2192Qk2yCWXC7pBoedDxVe4ftvfqVI7CVycwfCv1JX0A8hYVCRfWLm3QloSMSDfGxs-xSdhC8ls-F_FA8')">
+
+      <div class="max-w-3xl px-6">
+        <h2 class="text-white text-4xl md:text-6xl font-black mb-4">
+           Divine Glimpses: A visual journey
+        </h2>
+        <p class="text-white/90 text-lg font-[Noto_Sans]">
+           Through sacred architecture, devotion and festivals
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FILTER BAR ================= -->
+  <section
+    class="sticky top-[64px] z-40 bg-white/90 dark:bg-[#221910]/90 backdrop-blur border-b">
+    <div class="flex gap-2 overflow-x-auto">
+  <button
+    *ngFor="let tab of tabs"
+    (click)="setTab(tab)"
+    class="px-4 h-9 rounded-full text-sm transition"
+    [class.bg-primary]="activeTab() === tab"
+    [class.text-white]="activeTab() === tab"
+    [class.bg-surface-light]="activeTab() !== tab">
+    {{ tab }}
+  </button>
+</div>
+
+ <!-- ================= SORT BAR ================= -->
+  <div class="flex justify-end mr-5 mb-2">Sort by:
+  <select
+  class="rounded-lg p-1 text-sm"
+  (change)="setSort($any($event.target).value)">
+  <option>Popular</option>
+  <option>Newest</option>
+  <option>Oldest</option>
+</select>
+</div>
+  </section>
+
+ 
+
+
+  <!-- ================= GALLERY GRID ================= -->
+  <section class="max-w-[1440px] mx-auto px-4 md:px-10 py-8">
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div
+    *ngFor="let item of filteredGallery(); trackBy: trackById"
+    class="relative rounded-xl overflow-hidden group cursor-pointer">
+
+    <img
+      [src]="item.imageUrl"
+      class="h-full w-full object-cover group-hover:scale-110 transition">
+
+    <div class="absolute bottom-0 p-4 bg-black/60 w-full">
+      <h3 class="text-white font-bold">{{ item.title }}</h3>
+      <p class="text-gray-300 text-xs">{{ item.category }}</p>
+    </div>
+
+  </div>
+</div>
+
+
+    <!-- Load More -->
+    <div class="flex justify-center mt-12">
+      <button
+        class="border-2 border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition">
+        Load More Darshans
+      </button>
+    </div>
+  </section>
+
+<app-footer></app-footer>
+</div>
+

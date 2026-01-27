@@ -1,0 +1,174 @@
+<div
+  class="min-h-screen flex flex-col bg-[#f8f7f6] text-[#181411] font-[Newsreader]"
+>
+  <main class="flex-1 flex items-center justify-center p-4 md:p-8">
+    <div
+      class="w-full max-w-[1100px] bg-white rounded-2xl shadow-xl overflow-hidden border flex flex-col md:flex-row min-h-[600px]"
+    >
+      <!-- LEFT IMAGE -->
+      <div class="hidden md:block md:w-1/2 relative overflow-hidden">
+        <img
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuChTIr1a_9KaNGew2p7-6OiTu72g5l1C4dVdS9b1LJUlVg5A3QPSvAel_ph0rwB0H7KrmWKOBSlwqU4CZqHX3MwmdOtWmkP4AkTuLNk5nM4tLRjrAJYCC_DLbasK0hzzRcVG5pmAlvj-zU2wgtGP2BCMiZYJDNS9EAqNhQ7ZxJlng3YJ4VJi37IOPuhU64dx9z3dfOOoUgyz89GmJYjbI7DRG9iwuzPQuhA_o_zIK1K_Tr4DW5UBUFi31rh05R_fZ3UaSx3nakFjbG0"
+          alt="Temple architecture"
+        />
+
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-8 text-white"
+        >
+          <h2 class="text-3xl font-bold mb-2">
+            Begin Your Spiritual Journey
+          </h2>
+          <p class="text-white/80 text-sm font-[Noto Sans]">
+            Join thousands of devotees discovering sacred spaces.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT FORM -->
+      <div
+        class="w-full md:w-1/2 p-8 lg:p-12 flex flex-col justify-center"
+      >
+        <div class="mb-8">
+          <h1 class="text-4xl font-black mb-2">Create Account</h1>
+          <p class="text-[#897561] font-[Noto Sans]">
+            Sign up to explore temples and services.
+          </p>
+        </div>
+
+        <form class="space-y-5" (ngSubmit)="submit()">
+          <!-- FULL NAME -->
+          <div>
+            <label class="block text-sm font-medium mb-1.5">
+              Full Name
+            </label>
+            <div class="relative">
+              <input
+                type="text"
+                [(ngModel)]="fullName"
+                name="fullName"
+                placeholder="Enter your full name"
+                class="w-full h-12 px-4 pr-10 rounded-lg border focus:ring-2 focus:ring-orange-400 outline-none font-[Noto Sans]"
+                required
+              />
+              <span
+                class="material-symbols-outlined absolute inset-y-0 my-3 right-3 flex items-center text-gray-400"
+              >
+                person
+              </span>
+            </div>
+          </div>
+
+          <!-- EMAIL -->
+          <div>
+            <label class="block text-sm font-medium mb-1.5">
+              Email Address
+            </label>
+            <div class="relative">
+              <input
+                type="email"
+                [(ngModel)]="email"
+                name="email"
+                placeholder="Enter your email"
+                class="w-full h-12 px-4 pr-10 rounded-lg border focus:ring-2 focus:ring-orange-400 outline-none font-[Noto Sans]"
+                required
+              />
+              <span
+                class="material-symbols-outlined absolute inset-y-0 my-3 right-3 flex items-center text-gray-400"
+              >
+                mail
+              </span>
+            </div>
+          </div>
+
+          <!-- PASSWORDS -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1.5">
+                Password
+              </label>
+              <div class="relative">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  [(ngModel)]="password"
+                  name="password"
+                  placeholder="Password"
+                  class="w-full h-12 px-4 pr-10 rounded-lg border focus:ring-2 focus:ring-orange-400 outline-none font-[Noto Sans]"
+                  required
+                />
+                <button
+                  type="button"
+                  (click)="togglePassword()"
+                  class="absolute inset-y-0 right-3 flex items-center text-gray-400 hover:text-orange-500"
+                >
+                  <span class="material-symbols-outlined">
+                    visibility
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-1.5">
+                Confirm
+              </label>
+              <input
+                type="password"
+                [(ngModel)]="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm"
+                class="w-full h-12 px-4 rounded-lg border focus:ring-2 focus:ring-orange-400 outline-none font-[Noto Sans]"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- TERMS -->
+          <div class="flex items-start gap-3">
+            <input
+              type="checkbox"
+              [(ngModel)]="acceptTerms"
+              name="terms"
+              class="mt-1 accent-orange-500"
+            />
+            <p class="text-sm text-[#897561] font-[Noto Sans]">
+              I agree to the
+              <a class="text-orange-500 font-semibold hover:underline"
+                >Terms & Conditions</a
+              >
+              and
+              <a class="text-orange-500 font-semibold hover:underline"
+                >Privacy Policy</a
+              >
+            </p>
+          </div>
+
+          <!-- SUBMIT -->
+          <button
+            type="submit"
+            class="w-full h-12 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition active:scale-[0.98]"
+          >
+            <span>Sign Up</span>
+            <span class="material-symbols-outlined">
+              arrow_forward
+            </span>
+          </button>
+        </form>
+
+        <!-- FOOTER -->
+        <div class="mt-8 pt-6 border-t text-center">
+          <p class="text-sm text-[#897561] font-[Noto Sans]">
+            Already have an account?
+            <a
+              routerLink=""
+              class="text-orange-500 font-bold hover:underline ml-1"
+            >
+              Log In
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+

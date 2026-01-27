@@ -1,0 +1,120 @@
+/* Donation Component Button Styles */
+
+/* Main Donate Button */
+button.bg-orange-500 {
+  background: linear-gradient(135deg, #EC7F13 0%, #F4A03B 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0.75rem !important;
+  padding: 1rem 2rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 15px rgba(236, 127, 19, 0.3) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+}
+
+button.bg-orange-500:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(236, 127, 19, 0.4) !important;
+  background: linear-gradient(135deg, #D66F0F 0%, #E8902A 100%) !important;
+}
+
+button.bg-orange-500:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 10px rgba(236, 127, 19, 0.3) !important;
+}
+
+button.bg-orange-500:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+button.bg-orange-500::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+button.bg-orange-500:hover::before {
+  left: 100%;
+}
+
+/* Amount Selection Buttons */
+button.px-4.py-2 {
+  background: #f3ede7 !important;
+  color: #6d5d52 !important;
+  border: 2px solid #e6e0db !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+button.px-4.py-2:hover {
+  background: #EC7F13 !important;
+  color: white !important;
+  border-color: #EC7F13 !important;
+  transform: translateY(-2px) !important;
+}
+
+button.px-4.py-2.bg-orange-500.text-white {
+  background: linear-gradient(135deg, #EC7F13 0%, #F4A03B 100%) !important;
+  color: white !important;
+  border-color: #EC7F13 !important;
+  box-shadow: 0 4px 15px rgba(236, 127, 19, 0.3) !important;
+}
+
+/* Frequency Buttons */
+button.flex-1.py-2 {
+  background: #f3ede7 !important;
+  color: #6d5d52 !important;
+  border: none !important;
+  border-radius: 0.375rem !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  flex: 1 !important;
+}
+
+button.flex-1.py-2:hover {
+  background: #EC7F13 !important;
+  color: white !important;
+}
+
+button.flex-1.py-2.bg-white {
+  background: white !important;
+  color: #EC7F13 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  button.bg-orange-500 {
+    padding: 0.875rem 1.5rem !important;
+  }
+
+  button.px-4.py-2 {
+    flex: 1 1 calc(50% - 0.5rem) !important;
+    margin-bottom: 0.5rem !important;
+  }
+}

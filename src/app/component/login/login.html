@@ -1,0 +1,106 @@
+<div class="min-h-screen bg-[#f8f7f6] flex flex-col">
+  <!-- MAIN -->
+  <main class="flex-1 flex items-center justify-center p-4 md:p-8">
+    <div
+      class="w-full max-w-5xl bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row min-h-[600px]"
+    >
+      <!-- LEFT IMAGE -->
+      <div class="relative w-full md:w-1/2">
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbx1TVYouLajaxkhJ6wPrVcqDTc_8pEm1DHTdJa-DnNbtYzDqTL9Ynqv6K-ZbBben4KCybahe1aWH31N2PGBI-ggDIHczt4gDhLaZm8VWZl5e9wdSgQyI0wZhSw_AoCe_4faNHpn_qyWrLsgiFOsH28fPqyLt7DLg6kD3UtgJzApiNpOa4BQdr4n9zK1JnjY1RYclrU4TPLJe2mYgvlv82Gik9a8D4gAEoYJrLZB4zaGyVPan8H5qKiiPSk_YdiiIsdS1Zwuf_4jM_');"
+        ></div>
+
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8 md:p-12 text-white"
+        >
+          <div class="flex items-center gap-2 text-orange-400 mb-2">
+            <span class="material-symbols-outlined">self_improvement</span>
+            <span class="text-sm font-bold uppercase tracking-wider">
+              Spiritual Connection
+            </span>
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-bold mb-2">
+            Find Inner Peace
+          </h2>
+          <p class="text-gray-200 text-lg">
+            Connect with the divine from anywhere in the world.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT FORM -->
+      <div class="w-full md:w-1/2 p-8 md:p-12 flex items-center">
+        <div class="w-full max-w-md mx-auto">
+          <h1 class="text-3xl md:text-4xl font-black mb-2 text-[#181411]">
+            Welcome Back
+          </h1>
+          <p class="text-[#897561] mb-8">
+            Sign in to continue your spiritual journey.
+          </p>
+
+          <form class="flex flex-col gap-5" (ngSubmit)="login()">
+            <!-- EMAIL -->
+            <label class="flex flex-col gap-2">
+              <span class="font-medium">Email or Username</span>
+              <input
+                type="email"
+                [(ngModel)]="email"
+                name="email"
+                placeholder="user@example.com"
+                class="h-12 px-4 rounded-lg border border-[#e6e0db] focus:outline-none focus:ring-2 focus:ring-orange-400"
+                required
+              />
+            </label>
+
+            <!-- PASSWORD -->
+            <label class="flex flex-col gap-2">
+              <span class="font-medium">Password</span>
+              <div class="relative">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  [(ngModel)]="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  class="h-12 w-full px-4 pr-12 rounded-lg border border-[#e6e0db] focus:outline-none focus:ring-2 focus:ring-orange-400"
+                  required
+                />
+                <button
+                  type="button"
+                  (click)="togglePassword()"
+                  class="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-orange-500"
+                >
+                  <span class="material-symbols-outlined">
+                    {{ showPassword ? 'visibility_off' : 'visibility' }}
+                  </span>
+                </button>
+              </div>
+            </label>
+
+            <!-- LOGIN BUTTON -->
+            <button
+              routerLink="home"
+              type="submit"
+              class="mt-2 h-12 rounded-lg bg-orange-500 text-white font-bold hover:bg-orange-600 transition active:scale-[0.98]"
+            >
+              Login
+            </button>
+          </form>
+
+          <!-- SIGN UP -->
+          <p class="text-center text-sm mt-8 text-[#181411]">
+            Don’t have an account?
+            <a
+              routerLink="signup"
+              class="text-orange-500 font-bold hover:underline ml-1"
+            >
+              Sign up
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
