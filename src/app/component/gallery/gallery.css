@@ -19,6 +19,7 @@ button.px-4.h-9:hover {
   background: #EC7F13 !important;
   color: white !important;
   transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(236, 127, 19, 0.25) !important;
 }
 
 button.px-4.h-9.bg-primary.text-white {
@@ -71,6 +72,69 @@ button.border-2.border-primary:hover::before {
   left: 100%;
 }
 
+/* Sort Dropdown Styles */
+select {
+  background-color: white !important;
+  color: #1b140d !important;
+  border: 1px solid #e0d5cd !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.875rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.5rem center !important;
+  background-size: 1.25em !important;
+  padding-right: 2rem !important;
+}
+
+select:hover {
+  border-color: #EC7F13 !important;
+  box-shadow: 0 0 0 3px rgba(236, 127, 19, 0.1) !important;
+}
+
+select:focus {
+  outline: none !important;
+  border-color: #EC7F13 !important;
+  box-shadow: 0 0 0 3px rgba(236, 127, 19, 0.1) !important;
+}
+
+/* Dark mode select */
+.dark select {
+  background-color: #3a2f26 !important;
+  color: #e0e0e0 !important;
+  border-color: #4a3f36 !important;
+}
+
+.dark select:hover {
+  border-color: #EC7F13 !important;
+}
+
+/* Gallery Card Enhancements */
+.group {
+  position: relative;
+  overflow: hidden;
+}
+
+.group img {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.group:hover img {
+  transform: scale(1.1) !important;
+}
+
+/* Smooth shadow transitions */
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15) !important;
+}
+
 /* Action Buttons (like, share, etc.) */
 button.absolute {
   background: rgba(255, 255, 255, 0.9) !important;
@@ -96,6 +160,7 @@ button.absolute:hover {
   transform: scale(1.1) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
 }
+
 
 /* Modal Close Button */
 button.absolute.top-2.right-2 {
@@ -124,6 +189,14 @@ button.absolute.top-2.right-2:hover {
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+  select {
+    font-size: 0.75rem !important;
+    padding: 0.375rem 0.5rem !important;
+    padding-right: 1.75rem !important;
+  }
+}
+
 @media (max-width: 640px) {
   button.px-4.h-9 {
     font-size: 0.8rem !important;
@@ -133,5 +206,11 @@ button.absolute.top-2.right-2:hover {
   button.border-2.border-primary {
     padding: 0.625rem 1.5rem !important;
     font-size: 0.875rem !important;
+  }
+
+  select {
+    font-size: 0.75rem !important;
+    padding: 0.375rem 0.5rem !important;
+    padding-right: 1.75rem !important;
   }
 }

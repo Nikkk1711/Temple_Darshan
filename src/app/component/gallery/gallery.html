@@ -23,56 +23,62 @@
 
   <!-- ================= FILTER BAR ================= -->
   <section
-    class="sticky top-[64px] z-40 bg-white/90 dark:bg-[#221910]/90 backdrop-blur border-b">
-    <div class="flex gap-2 overflow-x-auto">
-  <button
-    *ngFor="let tab of tabs"
-    (click)="setTab(tab)"
-    class="px-4 h-9 rounded-full text-sm transition"
-    [class.bg-primary]="activeTab() === tab"
-    [class.text-white]="activeTab() === tab"
-    [class.bg-surface-light]="activeTab() !== tab">
-    {{ tab }}
-  </button>
-</div>
+    class="sticky top-[64px] z-40 bg-white/90 dark:bg-[#221910]/90 backdrop-blur border-b shadow-sm">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-10 py-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <!-- Filter Tabs -->
+        <div class="flex gap-2 overflow-x-auto pb-2 sm:pb-0 flex-1">
+          <button
+            *ngFor="let tab of tabs"
+            (click)="setTab(tab)"
+            class="px-4 h-9 rounded-full text-sm transition whitespace-nowrap"
+            [class.bg-primary]="activeTab() === tab"
+            [class.text-white]="activeTab() === tab"
+            [class.bg-surface-light]="activeTab() !== tab">
+            {{ tab }}
+          </button>
+        </div>
 
- <!-- ================= SORT BAR ================= -->
-  <div class="flex justify-end mr-5 mb-2">Sort by:
-  <select
-  class="rounded-lg p-1 text-sm"
-  (change)="setSort($any($event.target).value)">
-  <option>Popular</option>
-  <option>Newest</option>
-  <option>Oldest</option>
-</select>
-</div>
+        <!-- Sort Dropdown -->
+        <div class="flex items-center gap-2 whitespace-nowrap">
+          <label class="text-sm font-medium text-gray-700 dark:text-gray-300">Sort by:</label>
+          <select
+            class="rounded-lg px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 dark:bg-[#3a2f26] focus:outline-none focus:ring-2 focus:ring-primary transition"
+            (change)="setSort($any($event.target).value)">
+            <option>Popular</option>
+            <option>Newest</option>
+            <option>Oldest</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </section>
 
  
 
 
   <!-- ================= GALLERY GRID ================= -->
-  <section class="max-w-[1440px] mx-auto px-4 md:px-10 py-8">
-   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-  <div
-    *ngFor="let item of filteredGallery(); trackBy: trackById"
-    class="relative rounded-xl overflow-hidden group cursor-pointer">
+  <section class="max-w-[1440px] mx-auto px-4 md:px-10 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div
+        *ngFor="let item of filteredGallery(); trackBy: trackById"
+        class="relative rounded-xl overflow-hidden group cursor-pointer shadow-md hover:shadow-lg transition-all duration-300 h-64 sm:h-72">
 
-    <img
-      [src]="item.imageUrl"
-      class="h-full w-full object-cover group-hover:scale-110 transition">
+        <img
+          [src]="item.imageUrl"
+          class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300">
 
-    <div class="absolute bottom-0 p-4 bg-black/60 w-full">
-      <h3 class="text-white font-bold">{{ item.title }}</h3>
-      <p class="text-gray-300 text-xs">{{ item.category }}</p>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+          <h3 class="text-white font-bold text-sm md:text-base leading-tight">{{ item.title }}</h3>
+          <p class="text-gray-300 text-xs mt-1">{{ item.category }}</p>
+        </div>
+      </div>
     </div>
 
-  </div>
-</div>
-
-
     <!-- Load More -->
-    <div class="flex justify-center mt-12">
+    <div class="flex justify-center mt-14">
       <button
         class="border-2 border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition">
         Load More Darshans

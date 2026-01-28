@@ -25,7 +25,7 @@ export class AbhishekDarshan {
 
   currentStep = 1;
 
-  adults = 2;
+  adults = 1;
   children = 0;
 
   selectedSeva: Seva | null = null;
